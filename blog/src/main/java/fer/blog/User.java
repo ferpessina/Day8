@@ -59,7 +59,7 @@ public class User {
 		this.groups = groups;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creator")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = { CascadeType.ALL }, orphanRemoval=true)
 	public Set<Entry> getEntries() {
 		return entries;
 	}

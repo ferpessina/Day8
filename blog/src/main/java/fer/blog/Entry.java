@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.*;
-import javax.transaction.Transactional;
 
 @Entity
 @Table(name = "entries", uniqueConstraints = {@UniqueConstraint(columnNames = "ENTRY_ID")})
@@ -61,7 +60,7 @@ public class Entry{
 		this.entryDate = entryDate;
 	}
 	
-	@Transactional
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CREATOR", nullable = false)
 	public User getCreator() {
